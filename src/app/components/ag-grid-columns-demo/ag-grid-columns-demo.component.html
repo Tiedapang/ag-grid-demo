@@ -1,17 +1,11 @@
-<div class="test-container">
-    <div class="test-header">
-        <button (click)="setHeaderNames()">Set Header Names</button>
-        <button (click)="removeHeaderNames()">Remove Header Names</button>
-        <button (click)="setValueFormatters()">Set Value Formatters</button>
-        <button (click)="removeValueFormatters()">Remove Value Formatters</button>
-    </div>
-    <ag-grid-angular
-        #agGrid
-        style="width: 500px; height: 300px;"
-        id="myGrid"
-        class="ag-theme-alpine"
-        [columnDefs]="columnDefs"
-        [rowData]="rowData|async"
-        (gridReady)="onGridReady($event)"
-    ></ag-grid-angular>
-</div>
+<ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 300px;"
+    id="myGrid"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [debug]="true"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+></ag-grid-angular>

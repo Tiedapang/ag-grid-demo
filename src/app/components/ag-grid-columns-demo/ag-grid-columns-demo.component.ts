@@ -12,15 +12,20 @@ import {ColumnApi, GridApi} from 'ag-grid-community';
 export class AgGridColumnsDemoComponent implements OnInit {
   constructor(private gridDataService: GridDataServiceService) {
   }
-  @ViewChild('agGrid') agGrid: AgGridAngular;
   gridApi: GridApi;
   gridColumnApi: ColumnApi;
   rowData: any;
   columnDefs: any;
+  defaultColDef: any;
 
   ngOnInit(): void {
     this.columnDefs = this.getColumnDefs();
     this.rowData = this.gridDataService.getSmallRowDatas();
+    this.defaultColDef = {
+      sortable: true,
+      resizable: true,
+      filter: true,
+    };
   }
 
   onGridReady(params: any): void{
@@ -31,9 +36,19 @@ export class AgGridColumnsDemoComponent implements OnInit {
 
   getColumnDefs(): any{
     return  [
-      {headerName: '制造厂', field: 'make'},
-      {headerName: '模型', field: 'model'},
-      {headerName: '价格', field: 'price'}
+      {
+        headerName: '产品信息',
+        children: [
+          {headerName: '制造厂', field: 'make',  width: 150, suppressSizeToFit: true},
+          {headerName: '模型', field: 'model'},
+        ]
+      },
+      {
+        headerName: '价格详情',
+        children: [
+          {headerName: '价格', field: 'price'}
+        ]
+      }
     ];
   }
 
