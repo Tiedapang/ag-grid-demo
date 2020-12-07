@@ -5,19 +5,14 @@ import {withIdentifier} from 'codelyzer/util/astQuery';
 
 @Component({
   selector: 'app-ag-grid-demo',
-  templateUrl: './ag-grid-demo.component.html',
-  styleUrls: ['./ag-grid-demo.component.scss']
+  templateUrl: './ag-grid-columns-demo.component.html',
+  styleUrls: ['./ag-grid-columns-demo.component.scss']
 })
-export class AgGridDemoComponent implements OnInit {
+export class AgGridColumnsDemoComponent implements OnInit {
   @ViewChild('agGrid') agGrid: AgGridAngular;
   constructor(private gridDataService: GridDataServiceService) {
   }
   gridOptions = {
-    // columnDefs: [
-    //   {headerName: '制造厂', field: 'make', sortable: true, pinned: 'left', width: '150'},
-    //   {headerName: '模型', field: 'model', sortable: true},
-    //   {headerName: '价格', field: 'price', sortable: true}
-    // ],
     columnDefs: [
       {
         headerName: 'Group A',
@@ -27,7 +22,7 @@ export class AgGridDemoComponent implements OnInit {
         ]
       },
       {headerName: '价格',
-        children: [{headerName: '价格', field: 'price', filter: 'agNumberColumnFilter', type: 'numericColumn'}]
+        children: [{headerName: '价格', field: 'price', filter: 'agNumberColumnFilter'}]
       }
     ],
     defaultColDef: {
@@ -39,11 +34,6 @@ export class AgGridDemoComponent implements OnInit {
     }
   };
 
-  // columnDefs = [
-  //   {headerName: '制造厂', field: 'make', sortable: true, pinned: 'left', width: '150'},
-  //   {headerName: '模型', field: 'model', sortable: true},
-  //   {headerName: '价格', field: 'price', sortable: true}
-  // ];
   rowData: any;
 
   ngOnInit(): void {

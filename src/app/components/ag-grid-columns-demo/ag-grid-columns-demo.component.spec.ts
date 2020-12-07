@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AgGridDemoComponent } from './ag-grid-demo.component';
+import {AgGridColumnsDemoComponent} from './ag-grid-columns-demo.component';
 
 describe('AgGridDemoComponent', () => {
-  let component: AgGridDemoComponent;
-  let fixture: ComponentFixture<AgGridDemoComponent>;
+  let component: AgGridColumnsDemoComponent;
+  let fixture: ComponentFixture<AgGridColumnsDemoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgGridDemoComponent ]
+      declarations: [ AgGridColumnsDemoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AgGridDemoComponent);
+    fixture = TestBed.createComponent(AgGridColumnsDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

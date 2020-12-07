@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ag-grid-demo"
+    }
+  },
+  "defaultProject": "ag-grid-demo",
+  "cli": {
+    "analytics": "e17cb37e-b206-480c-af71-1e3654d583c1"
+  }
 }
