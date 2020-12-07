@@ -1,4 +1,6 @@
 <button (click)="getSelectedRows()">Get Selected Rows</button>
+<button (click)="onBtExcludeMedalColumns()">Exclude Medal Columns</button>
+<button (click)="onBtIncludeMedalColumns()">Include Medal Columns</button>
 <ag-grid-angular
   #agGrid
   style="width: 450px; height: 300px;"
@@ -6,5 +8,6 @@
   [gridOptions]= "gridOptions"
   [rowData]="rowData | async"
   rowSelection="multiple"
+  (gridReady)="onGridReady($event)"
 >
 </ag-grid-angular>

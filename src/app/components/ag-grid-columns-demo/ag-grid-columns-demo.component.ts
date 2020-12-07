@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {GridDataServiceService} from '../service/grid-data-service.service';
 import {AgGridAngular} from 'ag-grid-angular';
 import {withIdentifier} from 'codelyzer/util/astQuery';
+import {ColumnApi, GridApi} from "ag-grid-community";
 
 @Component({
   selector: 'app-ag-grid-demo',
@@ -9,9 +10,11 @@ import {withIdentifier} from 'codelyzer/util/astQuery';
   styleUrls: ['./ag-grid-columns-demo.component.scss']
 })
 export class AgGridColumnsDemoComponent implements OnInit {
-  @ViewChild('agGrid') agGrid: AgGridAngular;
   constructor(private gridDataService: GridDataServiceService) {
   }
+  @ViewChild('agGrid') agGrid: AgGridAngular;
+  gridApi: GridApi;
+  gridColumnApi: ColumnApi;
   gridOptions = {
     columnDefs: [
       {
@@ -35,6 +38,10 @@ export class AgGridColumnsDemoComponent implements OnInit {
   };
 
   rowData: any;
+  newColumnDefs  =  [
+    {headerName: '制造厂', field: 'make'},
+    {headerName: '模型', field: 'model'},
+    {headerName: '价格', field: 'price'}];
 
   ngOnInit(): void {
     this.rowData = this.gridDataService.getSmallRowDatas();
@@ -48,5 +55,17 @@ export class AgGridColumnsDemoComponent implements OnInit {
     const selectedDataStringPresentation = selectedData.map(node => node.make + ', ' + node.model);
 
     alert(`Selected nodes: ${selectedDataStringPresentation}`);
+  }
+  onBtExcludeMedalColumns(): void{
+    this.gridApi.setColumnDefs(this.newColumnDefs);
+  }
+
+  onGridReady(params: any): void{
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+  }
+
+  onBtIncludeMedalColumns(): void{
+    this.gridApi.setColumnDefs(this.gridOptions.columnDefs);
   }
 }
