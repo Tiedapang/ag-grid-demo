@@ -20,18 +20,19 @@ export class AgGridColumnsDemoComponent implements OnInit {
 
   ngOnInit(): void {
     this.columnDefs = this.getColumnDefs();
-    this.rowData = this.gridDataService.getSmallRowDatas();
     this.defaultColDef = {
       sortable: true,
       resizable: true,
       filter: true,
     };
+    this.rowData = this.gridDataService.getSmallRowDatas();
+    console.log('rowData:', this.rowData);
   }
 
   onGridReady(params: any): void{
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this.gridDataService.getSmallRowDatas();
+    // this.rowData = this.gridDataService.getSmallRowDatas();
   }
 
   getColumnDefs(): any{

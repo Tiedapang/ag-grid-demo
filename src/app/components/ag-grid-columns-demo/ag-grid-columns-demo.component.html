@@ -6,6 +6,6 @@
     [columnDefs]="columnDefs"
     [defaultColDef]="defaultColDef"
     [debug]="true"
-    [rowData]="rowData"
+    [rowData]="rowData|async"
     (gridReady)="onGridReady($event)"
 ></ag-grid-angular>
