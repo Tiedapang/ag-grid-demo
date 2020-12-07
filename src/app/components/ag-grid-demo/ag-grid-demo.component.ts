@@ -22,14 +22,21 @@ export class AgGridDemoComponent implements OnInit {
       {
         headerName: 'Group A',
         children: [
-          {headerName: '制造厂', field: 'make', sortable: true, width: '150'},
-          {headerName: '模型', field: 'model', sortable: true}
+          {headerName: '制造厂', field: 'make'},
+          {headerName: '模型', field: 'model'}
         ]
       },
       {headerName: '价格',
-        children: [{headerName: '价格', field: 'price', sortable: true}]
+        children: [{headerName: '价格', field: 'price', filter: 'agNumberColumnFilter', type: 'numericColumn'}]
       }
-    ]
+    ],
+    defaultColDef: {
+      width: 150,
+      editable: true,
+      filter: 'agTextColumnFilter',
+      sortable: true,
+      type: 'leftAligned',
+    }
   };
 
   // columnDefs = [
