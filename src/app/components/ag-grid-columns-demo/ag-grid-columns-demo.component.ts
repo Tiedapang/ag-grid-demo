@@ -51,4 +51,19 @@ export class AgGridColumnsDemoComponent implements OnInit {
     ];
   }
 
+  onMedalsFirst(): void{
+    this.gridColumnApi.moveColumns(['price'], 0);
+  }
+
+  onMedalsLast(): void{
+    this.gridColumnApi.moveColumns(['price'], 2);
+  }
+
+  onCountryFirst(): void{
+    this.gridColumnApi.moveColumn('price', 0);
+  }
+
+  onSwapFirstTwo(): void{
+    this.gridColumnApi.moveColumnByIndex(0, 1);
+  }
 }
