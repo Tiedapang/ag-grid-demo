@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ColumnApi, GridApi, Module} from 'ag-grid-community';
 import {GridDataServiceService} from '../service/grid-data-service.service';
-
+import './ag-grid-rows-demo.component.scss';
 
 @Component({
   selector: 'app-ag-grid-rows-demo',
@@ -15,6 +15,7 @@ export class AgGridRowsDemoComponent implements OnInit {
   defaultColDef: any;
   rowData: any;
   ForkHeight: number;
+  rowClassRules: any;
 
   constructor(private gridDataService: GridDataServiceService ) {
     this.ForkHeight = 100;
@@ -42,6 +43,12 @@ export class AgGridRowsDemoComponent implements OnInit {
     this.defaultColDef = {
       width: 170,
       sortable: true,
+    };
+    this.rowClassRules = {
+      'sick-days-warning':  (params) => {
+        return params.data.price > 30000 && params.data.price < 40000;
+      },
+      'sick-days-breach': 'params.data.price >= 40000',
     };
   }
 
