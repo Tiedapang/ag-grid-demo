@@ -38,7 +38,7 @@ export class AgGridColumnsDemoComponent implements OnInit {
         headerName: '产品信息',
         headerClass: 'my-css-class',
         children: [
-          {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true, suppressMovable: true},
+          {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true, suppressMovable: true, pinned: 'left'},
           {headerName: '模型', field: 'model'},
         ]
       },
@@ -50,20 +50,18 @@ export class AgGridColumnsDemoComponent implements OnInit {
       }
     ];
   }
-
-  onMedalsFirst(): void{
-    this.gridColumnApi.moveColumns(['price'], 0);
+  clearPinned(): void{
+    this.gridColumnApi.applyColumnState({defaultState: {pinned: null}})
   }
 
-  onMedalsLast(): void{
-    this.gridColumnApi.moveColumns(['price'], 2);
-  }
-
-  onCountryFirst(): void{
-    this.gridColumnApi.moveColumn('price', 0);
-  }
-
-  onSwapFirstTwo(): void{
-    this.gridColumnApi.moveColumnByIndex(0, 1);
+  resetPinned(): void{
+    this.gridColumnApi.applyColumnState(
+        {
+          state: [{
+            colId: 'model',
+            pinned: 'left',
+          }],
+          defaultState: {pinned: null},
+        });
   }
 }
