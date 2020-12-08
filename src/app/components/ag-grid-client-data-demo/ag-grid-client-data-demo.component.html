@@ -1,0 +1,25 @@
+<div class="example-wrapper">
+    <div style="margin-bottom: 1rem;">
+        <button (click)="onBtForEachNode()">For-Each Node</button>
+        <button (click)="onBtForEachNodeAfterFilter()">
+            For-Each Node After Filter
+        </button>
+        <button (click)="onBtForEachNodeAfterFilterAndSort()">
+            For-Each Node After Filter and Sort
+        </button>
+        <button (click)="onBtForEachLeafNode()">For-Each Leaf Node</button>
+    </div>
+
+    <ag-grid-angular
+        #agGrid
+        style="width: 500px; height: 300px;"
+        id="myGrid"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [autoGroupColumnDef]="autoGroupColumnDef"
+        [groupDefaultExpanded]="groupDefaultExpanded"
+        [rowData]="rowData"
+        (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>
+</div>
