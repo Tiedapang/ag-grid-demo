@@ -14,12 +14,10 @@ export class AgGridRowsDemoComponent implements OnInit {
   columnDefs: any;
   defaultColDef: any;
   rowData: any;
-  getRowStyle: any;
-  pinnedTopRowData: any;
-  pinnedBottomRowData: any;
-  frameworkComponents: any;
+  ForkHeight: number;
 
   constructor(private gridDataService: GridDataServiceService ) {
+    this.ForkHeight = 100;
     this.columnDefs = [
       {
         field: 'make',
@@ -44,13 +42,6 @@ export class AgGridRowsDemoComponent implements OnInit {
       width: 170,
       sortable: true,
     };
-    this.getRowStyle =  (params) => {
-      if (params.node.rowPinned) {
-        return { 'font-weight': 'bold' };
-      }
-    };
-    this.pinnedTopRowData = this.createData(1, 'Top');
-    this.pinnedBottomRowData = this.createData(1, 'Bottom');
   }
 
   ngOnInit(): void {
@@ -71,14 +62,16 @@ export class AgGridRowsDemoComponent implements OnInit {
     return params.data.make === 'Ford' ? 2 : 1;
   }
 
-  createData(index, prefix): any{
-    return [{
-      make: `${prefix}Porsche`,
-      model: `${prefix}Boxter`,
-      price: 72000
-    }];
-  }
   getRowHeight(params): number{
+    this.ForkHeight = 100;
+    if (params.data.make === 'Ford'){
+      return this.ForkHeight;
+    }
     return params.data.rowHeight;
+  }
+
+  resetRowHeight(height: number): void{
+    this.ForkHeight = height;
+    this.gridApi.resetRowHeights();
   }
 }
