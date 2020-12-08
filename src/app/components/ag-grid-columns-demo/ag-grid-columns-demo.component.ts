@@ -1,8 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {GridDataServiceService} from '../service/grid-data-service.service';
-import {AgGridAngular} from 'ag-grid-angular';
-import {withIdentifier} from 'codelyzer/util/astQuery';
 import {ColumnApi, GridApi} from 'ag-grid-community';
+import './ag-grid-columns-demo.component.scss';
 
 @Component({
   selector: 'app-ag-grid-demo',
@@ -39,8 +38,9 @@ export class AgGridColumnsDemoComponent implements OnInit {
     return  [
       {
         headerName: '产品信息',
+        headerClass: 'my-css-class',
         children: [
-          {headerName: '制造厂', field: 'make',  width: 150, suppressSizeToFit: true},
+          {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true},
           {headerName: '模型', field: 'model', columnGroupShow: 'open'},
         ]
       },
