@@ -25,13 +25,11 @@ export class AgGridColumnsDemoComponent implements OnInit {
       filter: true,
     };
     this.rowData = this.gridDataService.getSmallRowDatas();
-    console.log('rowData:', this.rowData);
   }
 
   onGridReady(params: any): void{
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    // this.rowData = this.gridDataService.getSmallRowDatas();
   }
 
   getColumnDefs(): any{
@@ -41,47 +39,16 @@ export class AgGridColumnsDemoComponent implements OnInit {
         headerClass: 'my-css-class',
         children: [
           {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true},
-          {headerName: '模型', field: 'model', columnGroupShow: 'open'},
+          {headerName: '模型', field: 'model'},
         ]
       },
       {
         headerName: '价格详情',
         children: [
-          {headerName: '价格', field: 'price', columnGroupShow: 'closed'}
+          {headerName: '价格', field: 'price', resizable: false}
         ]
       }
     ];
   }
 
-  setHeaderNames(): void{
-    this.columnDefs.forEach((coldef, index) => {
-      coldef.headerName = 'C' + index;
-    });
-    this.gridApi.setColumnDefs(this.columnDefs);
-  }
-
-  removeHeaderNames(): void{
-    this.columnDefs.forEach((coldef, index) => {
-      coldef.headerName = undefined;
-    });
-    this.gridApi.setColumnDefs(this.columnDefs);
-  }
-
-  setValueFormatters(): void{
-    this.columnDefs.forEach(coldef => {
-      coldef.valueFormatter = (params) => {
-        return '[' + params + ']';
-      };
-    });
-    this.gridApi.setColumnDefs(this.columnDefs);
-    this.gridApi.refreshCells({force: true});
-  }
-
-  removeValueFormatters(): void{
-    this.columnDefs.forEach((coldef) => {
-      coldef.valueFormatter  = undefined;
-    });
-    this.gridApi.setColumnDefs(this.columnDefs);
-    this.gridApi.refreshCells({force: true});
-  }
 }
