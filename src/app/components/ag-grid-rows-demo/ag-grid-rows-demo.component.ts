@@ -18,6 +18,7 @@ export class AgGridRowsDemoComponent implements OnInit {
     this.columnDefs = [
       {
         field: 'make',
+        rowSpan: this.rowSpan,
         sort: 'asc',
       },
       {
@@ -46,18 +47,7 @@ export class AgGridRowsDemoComponent implements OnInit {
     this.rowData = this.gridDataService.getSmallRowDatas();
   }
 
-  priceComparator(data1, data2): number{
-    console.log('data1:' + data1);
-    console.log('data2:' + data2);
-    if (data1 === null && data2 === null) {
-      return 0;
-    }
-    if (data1 === null) {
-      return -1;
-    }
-    if (data2 === null) {
-      return 1;
-    }
-    return data1 - data2;
+  rowSpan(params): number {
+    return params.data.make === 'Ford' ? 2 : 1;
   }
 }
