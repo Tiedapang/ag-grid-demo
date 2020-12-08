@@ -45,13 +45,15 @@ export class AgGridColumnsDemoComponent implements OnInit {
       {
         headerName: '价格详情',
         children: [
-          {headerName: '价格', field: 'price', resizable: false, lockPosition: true}
+          {headerName: '价格', field: 'price', resizable: false, lockPosition: true, colSpan: (params) => {
+            return params.data.make === 'Ford' ? 2 : 1;
+            }}
         ]
       }
     ];
   }
   clearPinned(): void{
-    this.gridColumnApi.applyColumnState({defaultState: {pinned: null}})
+    this.gridColumnApi.applyColumnState({defaultState: {pinned: null}});
   }
 
   resetPinned(): void{
