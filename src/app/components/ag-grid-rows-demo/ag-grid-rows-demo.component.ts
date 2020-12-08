@@ -13,11 +13,17 @@ export class AgGridRowsDemoComponent implements OnInit {
   columnDefs: any;
   defaultColDef: any;
   rowData: any;
+  getRowStyle: any;
+  pinnedTopRowData: any;
+  pinnedBottomRowData: any;
+  frameworkComponents: any;
 
   constructor(private gridDataService: GridDataServiceService ) {
     this.columnDefs = [
       {
         field: 'make',
+        pinnedRowCellRenderer: 'customPinnedRowRenderer',
+        pinnedRowCellRendererParams: { style: { color: 'blue' } },
         rowSpan: this.rowSpan,
         sort: 'asc',
       },
@@ -36,6 +42,16 @@ export class AgGridRowsDemoComponent implements OnInit {
       width: 170,
       sortable: true,
     };
+    this.getRowStyle =  (params) => {
+      if (params.node.rowPinned) {
+        return { 'font-weight': 'bold' };
+      }
+    };
+    this.pinnedTopRowData = this.createData(1, 'Top');
+    this.pinnedBottomRowData = this.createData(1, 'Bottom');
+    // this.frameworkComponents = {
+    //   customPinnedRowRenderer: CustomPinnedRowRenderer,
+    // };
   }
 
   ngOnInit(): void {
@@ -49,5 +65,13 @@ export class AgGridRowsDemoComponent implements OnInit {
 
   rowSpan(params): number {
     return params.data.make === 'Ford' ? 2 : 1;
+  }
+
+  createData(index, prefix): any{
+    return [{
+      make: `${prefix}Porsche`,
+      model: `${prefix}Boxter`,
+      price: 72000
+    }];
   }
 }
