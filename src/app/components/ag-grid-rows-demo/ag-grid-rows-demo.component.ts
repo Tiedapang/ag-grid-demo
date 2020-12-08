@@ -27,6 +27,7 @@ export class AgGridRowsDemoComponent implements OnInit {
         pinnedRowCellRendererParams: { style: { color: 'blue' } },
         rowSpan: this.rowSpan,
         sort: 'asc',
+        wrapText: true,
       },
       {
         field: 'model',
@@ -50,9 +51,6 @@ export class AgGridRowsDemoComponent implements OnInit {
     };
     this.pinnedTopRowData = this.createData(1, 'Top');
     this.pinnedBottomRowData = this.createData(1, 'Bottom');
-    // this.frameworkComponents = {
-    //   customPinnedRowRenderer: CustomPinnedRowRenderer,
-    // };
   }
 
   ngOnInit(): void {
