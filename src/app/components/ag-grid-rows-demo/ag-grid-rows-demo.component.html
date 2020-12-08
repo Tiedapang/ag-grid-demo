@@ -1,25 +1,10 @@
-<div class="example-wrapper">
-    <div
-            style="margin-bottom: 5px; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 13px;"
-    >
-        <div>
-            reset row height:
-            <button (click)="resetRowHeight(42)">42px</button>
-            <button (click)="resetRowHeight(75)">75px</button>
-            <button (click)="resetRowHeight(125)">125px</button>
-        </div>
-    </div>
-    <ag-grid-angular
-        #agGrid
-        style="width: 500px; height: 300px;"
-        id="myGrid"
-        class="ag-theme-alpine"
-        [columnDefs]="columnDefs"
-        [animateRows]="true"
-        [getRowHeight]="getRowHeight"
-        [rowDragManaged]="true"
-        [rowClassRules]="rowClassRules"
-        [rowData]="rowData"
-        (gridReady)="onGridReady($event)"
-    ></ag-grid-angular>
-</div>
+<ag-grid-angular
+    #agGrid
+    style="width: 500px; height: 300px;"
+    id="myGrid"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+></ag-grid-angular>

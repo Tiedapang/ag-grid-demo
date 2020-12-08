@@ -14,20 +14,11 @@ export class AgGridRowsDemoComponent implements OnInit {
   columnDefs: any;
   defaultColDef: any;
   rowData: any;
-  ForkHeight: number;
-  rowClassRules: any;
 
-  constructor(private gridDataService: GridDataServiceService ) {
-    this.ForkHeight = 100;
+  constructor(private gridDataService: GridDataServiceService) {
     this.columnDefs = [
       {
         field: 'make',
-        pinnedRowCellRenderer: 'customPinnedRowRenderer',
-        pinnedRowCellRendererParams: { style: { color: 'blue' } },
-        rowSpan: this.rowSpan,
-        sort: 'asc',
-        wrapText: true,
-        rowDrag: true,
       },
       {
         field: 'model',
@@ -35,51 +26,23 @@ export class AgGridRowsDemoComponent implements OnInit {
       },
       {
         field: 'price',
-        comparator: (valueA, valueB, nodeA, nodeB, inInverted) => {
-         return valueA - valueB;
-        },
       }
     ];
     this.defaultColDef = {
       width: 170,
       sortable: true,
     };
-    this.rowClassRules = {
-      'sick-days-warning':  (params) => {
-        return params.data.price > 30000 && params.data.price < 40000;
-      },
-      'sick-days-breach': 'params.data.price >= 40000',
-    };
   }
 
   ngOnInit(): void {
   }
 
-  onGridReady(params: any): void{
+  onGridReady(params: any): void {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.gridDataService.getSmallRowDatas().subscribe((data) =>{
-      data.forEach((dataItem) => {
-        dataItem.rowHeight = 60;
-      });
+    this.gridDataService.getSmallRowDatas().subscribe((data) => {
       this.rowData = data;
     });
   }
 
-  rowSpan(params): number {
-    return params.data.make === 'Ford' ? 2 : 1;
-  }
-
-  getRowHeight(params): number{
-    this.ForkHeight = 100;
-    if (params.data.make === 'Ford'){
-      return this.ForkHeight;
-    }
-    return params.data.rowHeight;
-  }
-
-  resetRowHeight(height: number): void{
-    this.ForkHeight = height;
-    this.gridApi.resetRowHeights();
-  }
 }
