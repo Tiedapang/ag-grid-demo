@@ -12,8 +12,7 @@ export class AgGridClientDataDemoComponent implements OnInit {
   gridColumnApi: ColumnApi;
   columnDefs: any;
   defaultColDef: any;
-  autoGroupColumnDef: any;
-  groupDefaultExpanded: any;
+  getRowNodeId: any;
   rowData: [];
 
   constructor(private gridDataService: GridDataServiceService) {
@@ -27,11 +26,18 @@ export class AgGridClientDataDemoComponent implements OnInit {
       },
       {
         field: 'price',
+        filter: 'agNumberColumnFilter'
       }
     ];
     this.defaultColDef = {
       width: 170,
       sortable: true,
+      flex: 1,
+      editable: true,
+      filter: true
+    };
+    this.getRowNodeId = (data) => {
+      return data.id;
     };
   }
 
@@ -46,23 +52,19 @@ export class AgGridClientDataDemoComponent implements OnInit {
     });
   }
 
-  onBtForEachNode(): void{
-    console.log('### api.forEachNode() ###');
-    this.gridApi.forEachNode(this.printNode);
+  setPriceOnToyota(): void{
+    this.gridApi.getRowNode('aa').setDataValue('price',  Math.floor(Math.random() * 10000));
   }
 
-  onBtForEachNodeAfterFilter(): void{
-    console.log('### api.forEachNodeAfterFilter() ###');
-    this.gridApi.forEachNodeAfterFilter(this.printNode);
+  setDataOnFord(): void{
   }
 
-  onBtForEachNodeAfterFilterAndSort(): void{
+  updateSort(): void{
+    this.gridApi.refreshClientSideRowModel('sort');
   }
 
-  onBtForEachLeafNode(): void{
+  updateFilter(): void{
+    this.gridApi.refreshClientSideRowModel('filter');
   }
 
-  printNode(node, index): void{
-    console.log(`${index}->data: ${node.data.make},${node.data.price}`);
-  }
 }

@@ -1,25 +1,20 @@
 <div class="example-wrapper">
     <div style="margin-bottom: 1rem;">
-        <button (click)="onBtForEachNode()">For-Each Node</button>
-        <button (click)="onBtForEachNodeAfterFilter()">
-            For-Each Node After Filter
-        </button>
-        <button (click)="onBtForEachNodeAfterFilterAndSort()">
-            For-Each Node After Filter and Sort
-        </button>
-        <button (click)="onBtForEachLeafNode()">For-Each Leaf Node</button>
+        <button (click)="setPriceOnToyota()">Set Price on Toyota</button>
+        <button (click)="setDataOnFord()">Set Data on Ford</button>
+        <button (click)="updateSort()" style="margin-left: 15px">Sort</button>
+        <button (click)="updateFilter()">Filter</button>
     </div>
-
     <ag-grid-angular
         #agGrid
         style="width: 500px; height: 300px;"
         id="myGrid"
         class="ag-theme-alpine"
+        [rowData]="rowData"
         [columnDefs]="columnDefs"
         [defaultColDef]="defaultColDef"
-        [autoGroupColumnDef]="autoGroupColumnDef"
-        [groupDefaultExpanded]="groupDefaultExpanded"
-        [rowData]="rowData"
+        [animateRows]="true"
+        [getRowNodeId]="getRowNodeId"
         (gridReady)="onGridReady($event)"
     ></ag-grid-angular>
 </div>
