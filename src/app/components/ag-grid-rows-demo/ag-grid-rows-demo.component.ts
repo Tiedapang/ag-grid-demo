@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ColumnApi, GridApi, Module} from 'ag-grid-community';
 import {GridDataServiceService} from '../service/grid-data-service.service';
 
+
 @Component({
   selector: 'app-ag-grid-rows-demo',
   templateUrl: './ag-grid-rows-demo.component.html',
@@ -60,7 +61,12 @@ export class AgGridRowsDemoComponent implements OnInit {
   onGridReady(params: any): void{
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    this.rowData = this.gridDataService.getSmallRowDatas();
+    this.gridDataService.getSmallRowDatas().subscribe((data) =>{
+      data.forEach((dataItem) => {
+        dataItem.rowHeight = 200 * Math.random();
+      });
+      this.rowData = data;
+    });
   }
 
   rowSpan(params): number {
@@ -73,5 +79,8 @@ export class AgGridRowsDemoComponent implements OnInit {
       model: `${prefix}Boxter`,
       price: 72000
     }];
+  }
+  getRowHeight(params): number{
+    return params.data.rowHeight;
   }
 }

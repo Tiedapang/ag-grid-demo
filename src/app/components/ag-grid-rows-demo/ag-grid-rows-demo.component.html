@@ -6,11 +6,11 @@
         class="ag-theme-alpine"
         [columnDefs]="columnDefs"
         [defaultColDef]="defaultColDef"
-        [rowData]="rowData|async"
+        [rowData]="rowData"
+        [getRowHeight]="getRowHeight"
         [getRowStyle]="getRowStyle"
         [pinnedTopRowData]="pinnedTopRowData"
         [pinnedBottomRowData]="pinnedBottomRowData"
-        [frameworkComponents]="frameworkComponents"
         (gridReady)="onGridReady($event)"
     ></ag-grid-angular>
 </div>
