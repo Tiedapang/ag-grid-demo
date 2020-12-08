@@ -38,14 +38,14 @@ export class AgGridColumnsDemoComponent implements OnInit {
         headerName: '产品信息',
         headerClass: 'my-css-class',
         children: [
-          {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true},
+          {headerName: '制造厂', field: 'make', width: 150, suppressSizeToFit: true, suppressMovable: true},
           {headerName: '模型', field: 'model'},
         ]
       },
       {
         headerName: '价格详情',
         children: [
-          {headerName: '价格', field: 'price', resizable: false}
+          {headerName: '价格', field: 'price', resizable: false, lockPosition: true}
         ]
       }
     ];
