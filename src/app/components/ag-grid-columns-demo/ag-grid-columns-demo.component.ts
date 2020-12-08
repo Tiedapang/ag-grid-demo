@@ -41,13 +41,13 @@ export class AgGridColumnsDemoComponent implements OnInit {
         headerName: '产品信息',
         children: [
           {headerName: '制造厂', field: 'make',  width: 150, suppressSizeToFit: true},
-          {headerName: '模型', field: 'model'},
+          {headerName: '模型', field: 'model', columnGroupShow: 'open'},
         ]
       },
       {
         headerName: '价格详情',
         children: [
-          {headerName: '价格', field: 'price'}
+          {headerName: '价格', field: 'price', columnGroupShow: 'closed'}
         ]
       }
     ];
