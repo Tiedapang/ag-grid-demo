@@ -26,6 +26,7 @@ export class AgGridRowsDemoComponent implements OnInit {
         rowSpan: this.rowSpan,
         sort: 'asc',
         wrapText: true,
+        rowDrag: true,
       },
       {
         field: 'model',
@@ -52,7 +53,7 @@ export class AgGridRowsDemoComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
     this.gridDataService.getSmallRowDatas().subscribe((data) =>{
       data.forEach((dataItem) => {
-        dataItem.rowHeight = 200 * Math.random();
+        dataItem.rowHeight = 60;
       });
       this.rowData = data;
     });
