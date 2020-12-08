@@ -1,20 +1,24 @@
-<div class="example-wrapper">
-    <div style="margin-bottom: 1rem;">
-        <button (click)="setPriceOnToyota()">Set Price on Toyota</button>
-        <button (click)="setDataOnFord()">Set Data on Ford</button>
-        <button (click)="updateSort()" style="margin-left: 15px">Sort</button>
-        <button (click)="updateFilter()">Filter</button>
+<div style="height: 100%; display: flex; flex-direction: column;">
+    <div style="margin-bottom: 4px;">
+        <button (click)="addItems()">Add Items</button>
+        <button (click)="addItems()">Add Items addIndex=2</button>
+        <button (click)="updateItems()">Update Top 2</button>
+        <button (click)="onRemoveSelected()">Remove Selected</button>
+        <button (click)="getRowData()">Get Row Data</button>
+        <button (click)="clearData()">Clear Data</button>
     </div>
-    <ag-grid-angular
-        #agGrid
-        style="width: 500px; height: 300px;"
-        id="myGrid"
-        class="ag-theme-alpine"
-        [rowData]="rowData"
-        [columnDefs]="columnDefs"
-        [defaultColDef]="defaultColDef"
-        [animateRows]="true"
-        [getRowNodeId]="getRowNodeId"
-        (gridReady)="onGridReady($event)"
-    ></ag-grid-angular>
+    <div style="flex-grow: 1;">
+        <ag-grid-angular
+            #agGrid
+            style="width: 500px; height: 300px;"
+            id="myGrid"
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef"
+            [rowSelection]="rowSelection"
+            [animateRows]="true"
+            (gridReady)="onGridReady($event)"
+        ></ag-grid-angular>
+    </div>
 </div>

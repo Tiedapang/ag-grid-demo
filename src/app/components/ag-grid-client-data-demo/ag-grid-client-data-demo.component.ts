@@ -12,7 +12,7 @@ export class AgGridClientDataDemoComponent implements OnInit {
   gridColumnApi: ColumnApi;
   columnDefs: any;
   defaultColDef: any;
-  getRowNodeId: any;
+  rowSelection: any;
   rowData: [];
 
   constructor(private gridDataService: GridDataServiceService) {
@@ -36,9 +36,7 @@ export class AgGridClientDataDemoComponent implements OnInit {
       editable: true,
       filter: true
     };
-    this.getRowNodeId = (data) => {
-      return data.id;
-    };
+    this.rowSelection = 'multiple';
   }
 
   ngOnInit(): void {
@@ -52,19 +50,46 @@ export class AgGridClientDataDemoComponent implements OnInit {
     });
   }
 
-  setPriceOnToyota(): void{
-    this.gridApi.getRowNode('aa').setDataValue('price',  Math.floor(Math.random() * 10000));
+  getRowData(): void{
+    const rowTempData = [];
+    this.gridApi.forEachNode((node) => {
+      return rowTempData.push(node.data);
+    });
   }
 
-  setDataOnFord(): void{
+  clearData(): void{
+    this.gridApi.setRowData([]);
   }
 
-  updateSort(): void{
-    this.gridApi.refreshClientSideRowModel('sort');
+  addItems(): void{
+    const newItem = this.createNewData();
+    this.gridApi.applyTransaction({
+      add: newItem
+    });
   }
 
-  updateFilter(): void{
-    this.gridApi.refreshClientSideRowModel('filter');
+  updateItems(): void{
+    const updateItems = [
+      {
+        make: 'Porsche',
+        model: 'Boxter',
+        price: 72000
+      }];
+    this.gridApi.applyTransaction({update:  updateItems});
   }
 
+  onRemoveSelected(): void{
+    const selectData = this.gridApi.getSelectedRows();
+    this.gridApi.applyTransaction(
+        {remove: selectData}
+    );
+  }
+
+  createNewData(): any{
+    return [{
+      make: 'Porsche',
+      model: 'Boxter',
+      price: 72000
+    }];
+  }
 }
