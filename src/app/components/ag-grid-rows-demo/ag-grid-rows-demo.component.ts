@@ -19,6 +19,7 @@ export class AgGridRowsDemoComponent implements OnInit {
     this.columnDefs = [
       {
         field: 'make',
+        cellStyle: {color: 'red', 'background-color': 'green'}
       },
       {
         field: 'model',
@@ -26,6 +27,7 @@ export class AgGridRowsDemoComponent implements OnInit {
       },
       {
         field: 'price',
+        cellClass: 'my-class-1'
       }
     ];
     this.defaultColDef = {
