@@ -27,6 +27,7 @@ export class AgGridContextRanderDemoComponent implements OnInit {
         headerName: 'A + B',
         colId: 'a&b',
         valueGetter: this.abValueGetter,
+        valueFormatter: this.currencyFormatter,
       },
       {
         headerName: 'A * 1000',
@@ -105,5 +106,9 @@ export class AgGridContextRanderDemoComponent implements OnInit {
       });
     }
     return rowData;
+  }
+
+  currencyFormatter(params): string{
+    return `¥${params.value}`;
   }
 }
