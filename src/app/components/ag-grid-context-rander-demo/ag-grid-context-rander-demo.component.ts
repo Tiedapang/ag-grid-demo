@@ -8,59 +8,48 @@ import {GridDataServiceService} from '../service/grid-data-service.service';
   styleUrls: ['./ag-grid-context-rander-demo.component.scss']
 })
 export class AgGridContextRanderDemoComponent implements OnInit {
+
+  constructor(private gridDataService: GridDataServiceService) {
+    this.columnDefs = [
+      { field: '1' },
+      { field: '2' },
+      { field: '3' },
+      { field: '4' },
+      { field: '5' },
+      { field: '6' },
+      { field: '7' },
+      { field: '8' },
+      { field: '9' },
+      { field: '10' },
+      { field: '11' },
+      { field: '12' },
+      { field: '13' },
+      { field: '14' },
+      { field: '15' },
+      { field: '16' },
+      { field: '17' },
+      { field: '18' },
+      { field: '19' },
+      { field: '20' },
+    ];
+    this.defaultColDef = {
+      flex: 1,
+      minWidth: 80,
+      cellRenderer: this.showOrderCellRenderer,
+    };
+    this.rowData = this.getRowData();
+    this.rowSelection = 'single';
+    this.rowBuffer = 0;
+    this.count = 0;
+  }
   gridApi: GridApi;
   gridColumnApi: ColumnApi;
   columnDefs: any;
   defaultColDef: any;
   rowData: [];
-
-  constructor(private gridDataService: GridDataServiceService) {
-    this.columnDefs = [
-      {
-        headerName: '#',
-        maxWidth: 100,
-        valueGetter: this.hashValueGetter,
-      },
-      { field: 'a' },
-      { field: 'b' },
-      {
-        headerName: 'A + B',
-        colId: 'a&b',
-        valueGetter: this.abValueGetter,
-        valueFormatter: this.currencyFormatter,
-      },
-      {
-        headerName: 'A * 1000',
-        minWidth: 95,
-        valueGetter: this.a1000ValueGetter,
-        valueFormatter: '"¥" + Math.floor(Math.random() * 1000+value)'
-      },
-      {
-        headerName: 'B * 137',
-        minWidth: 90,
-        valueGetter: this.b137ValueGetter,
-      },
-      {
-        headerName: 'Random',
-        minWidth: 90,
-        valueGetter: this.randomValueGetter,
-      },
-      {
-        headerName: 'Chain',
-        valueGetter: this.chainValueGetter,
-      },
-      {
-        headerName: 'Const',
-        minWidth: 85,
-        valueGetter: this.constValueGetter,
-      },
-    ];
-    this.defaultColDef = {
-      flex: 1,
-      minWidth: 75,
-    };
-    this.rowData = this.createRowData();
-  }
+  rowSelection: any;
+  rowBuffer: any;
+  count: number;
 
   ngOnInit(): void {
   }
@@ -69,47 +58,14 @@ export class AgGridContextRanderDemoComponent implements OnInit {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
   }
-
-  hashValueGetter(params): any{
-    return params.node.rowIndex;
+  showOrderCellRenderer(): any{
+    const eGui = document.createElement('div');
+    eGui.innerHTML = String(Math.random() * 100);
+    const start = Number(new Date());
+    while (Number(new Date()) - start < 15){}
+    return eGui;
   }
-
-  abValueGetter(params): any{
-    return params.data.a + params.data.b;
-  }
-
-  a1000ValueGetter(params): any{
-    return params.data.a * 100;
-  }
-
-  b137ValueGetter(params): any{
-    return params.data.b * 137;
-  }
-
-  randomValueGetter(params): any{
-    return Math.floor(Math.random() * 1000);
-  }
-
-  chainValueGetter(params): number{
-    return params.getValue('a&b');
-  }
-
-  constValueGetter(params): number{
-    return 999;
-  }
-
-  createRowData(): any{
-    const rowData = [];
-    for (let i = 0; i < 100; i++){
-      rowData.push({
-        a: Math.floor(i % 4),
-        b: Math.floor(i % 7),
-      });
-    }
-    return rowData;
-  }
-
-  currencyFormatter(params): string{
-    return `¥${params.value}`;
+  getRowData(): any{
+    return Array.apply(null, Array(1000));
   }
 }
