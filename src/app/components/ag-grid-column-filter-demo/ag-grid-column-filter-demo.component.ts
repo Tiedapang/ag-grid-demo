@@ -83,42 +83,13 @@ export class AgGridColumnFilterDemoComponent implements OnInit {
         });
     }
 
-    saveFilterModel(): void{
-        const keys = Object.keys(this.gridApi.getFilterModel());
-        const saveFilters = keys.length > 0 ? keys.join(', ') : '(none)';
-        document.querySelector('#savedFilters').innerHTML = saveFilters;
-    }
-
-    restoreFilterModel(): void{
-        this.gridApi.setFilterModel(this.gridApi.getFilterModel());
-    }
-
-    restoreFromHardCoded(): void{
-        const hardcodedFilter = {
-            country: {
-                type: 'set',
-                values: ['Ireland', 'United States'],
-            },
-            age: {
-                type: 'lessThan',
-                filter: '30',
-            },
-            athlete: {
-                type: 'startsWith',
-                filter: 'Mich',
-            },
-            date: {
-                type: 'lessThan',
-                dateFrom: '2010-01-01',
-            },
-        };
-        this.gridApi.setFilterModel(hardcodedFilter);
-    }
-
-    clearFilters(): void{
-        this.gridApi.setFilterModel(null);
-    }
-
-    destroyFilter(): void{
+    resetAgeFilter(): void{
+        const ageFilterInstance =  this.gridApi.getFilterInstance('age');
+        ageFilterInstance.setModel({
+            filterType: 'number',
+            type: 'equals',
+            filter: 15
+        });
+        this.gridApi.onFilterChanged();
     }
 }
