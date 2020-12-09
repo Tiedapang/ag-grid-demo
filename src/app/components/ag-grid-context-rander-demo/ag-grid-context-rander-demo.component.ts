@@ -33,6 +33,7 @@ export class AgGridContextRanderDemoComponent implements OnInit {
         headerName: 'A * 1000',
         minWidth: 95,
         valueGetter: this.a1000ValueGetter,
+        valueFormatter: '"¥" + Math.floor(Math.random() * 1000+value)'
       },
       {
         headerName: 'B * 137',
