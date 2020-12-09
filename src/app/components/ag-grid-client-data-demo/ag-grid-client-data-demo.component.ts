@@ -12,7 +12,7 @@ export class AgGridClientDataDemoComponent implements OnInit {
   gridColumnApi: ColumnApi;
   columnDefs: any;
   defaultColDef: any;
-  rowSelection: any;
+  getRowNodeId: any;
   rowData: [];
 
   constructor(private gridDataService: GridDataServiceService) {
@@ -36,7 +36,9 @@ export class AgGridClientDataDemoComponent implements OnInit {
       editable: true,
       filter: true
     };
-    this.rowSelection = 'multiple';
+    this.getRowNodeId = (data) => {
+      return data.code;
+    };
   }
 
   ngOnInit(): void {

@@ -19,4 +19,9 @@ export class GridDataServiceService {
       '../../../assets/rowData.json'
     );
   }
+  getBigNumbersOfRowDatas(): Observable<any>{
+    return this.http.get(
+        '../../../assets/olympicWinners.json'
+    );
+  }
 }
