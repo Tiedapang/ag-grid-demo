@@ -10,6 +10,8 @@
     [rowData]="rowData"
     [singleClickEdit]="true"
     [stopEditingWhenGridLosesFocus]="true"
+    [undoRedoCellEditing]="true"
+    [undoRedoCellEditingLimit] = 5
     [editType]="editType"
     (gridReady)="onGridReady($event)"
 ></ag-grid-angular>
