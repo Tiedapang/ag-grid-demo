@@ -14,6 +14,12 @@ import { AgGridContextEditerDemoComponent } from './components/ag-grid-context-e
 import { AgGridExportFileDemoComponent } from './components/ag-grid-export-file-demo/ag-grid-export-file-demo.component';
 import { AgGridImportDemoComponent } from './components/ag-grid-import-demo/ag-grid-import-demo.component';
 import { AgGridCustomerComponmentsDemoComponent } from './components/ag-grid-customer-componments-demo/ag-grid-customer-componments-demo.component';
+import { AgGridAddComponmentsDemoComponent } from './components/ag-grid-add-componments-demo/ag-grid-add-componments-demo.component';
+import {SquareRendererComponent} from './components/ag-grid-add-componments-demo/square-renderer.component';
+import {CubeRendererComponent} from './components/ag-grid-add-componments-demo/cube-renderer-component';
+import {ParamsRendererComponent} from './components/ag-grid-add-componments-demo/params-renderer.component';
+import {CurrencyRendererComponent} from './components/ag-grid-add-componments-demo/currency-renderer.component';
+import {ChildMessageRendererComponment} from "./components/ag-grid-add-componments-demo/child-message-renderer.componment";
 
 @NgModule({
   declarations: [
@@ -27,6 +33,12 @@ import { AgGridCustomerComponmentsDemoComponent } from './components/ag-grid-cus
     AgGridExportFileDemoComponent,
     AgGridImportDemoComponent,
     AgGridCustomerComponmentsDemoComponent,
+    AgGridAddComponmentsDemoComponent,
+    SquareRendererComponent,
+    CubeRendererComponent,
+    ParamsRendererComponent,
+    CurrencyRendererComponent,
+    ChildMessageRendererComponment,
   ],
   imports: [
     BrowserModule,
