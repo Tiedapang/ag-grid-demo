@@ -13,6 +13,7 @@ export class AgGridContextEditerDemoComponent implements OnInit {
   rowData: [];
   columnDefs: any;
   defaultColDef: any;
+  editType: string;
 
   constructor(private gridDataService: GridDataServiceService) {
     this.columnDefs = [
@@ -37,6 +38,7 @@ export class AgGridContextEditerDemoComponent implements OnInit {
       editable: true,
       resizable: true,
     };
+    this.editType = 'fullRow';
     gridDataService.getPersonInfo().subscribe((data) => {
       this.rowData = data;
     });
