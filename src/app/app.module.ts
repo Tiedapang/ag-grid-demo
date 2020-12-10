@@ -10,6 +10,7 @@ import { AgGridRowsDemoComponent } from './components/ag-grid-rows-demo/ag-grid-
 import { AgGridClientDataDemoComponent } from './components/ag-grid-client-data-demo/ag-grid-client-data-demo.component';
 import { AgGridColumnFilterDemoComponent } from './components/ag-grid-column-filter-demo/ag-grid-column-filter-demo.component';
 import { AgGridContextRanderDemoComponent } from './components/ag-grid-context-rander-demo/ag-grid-context-rander-demo.component';
+import { AgGridContextEditerDemoComponent } from './components/ag-grid-context-editer-demo/ag-grid-context-editer-demo.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AgGridContextRanderDemoComponent } from './components/ag-grid-context-r
     AgGridClientDataDemoComponent,
     AgGridColumnFilterDemoComponent,
     AgGridContextRanderDemoComponent,
+    AgGridContextEditerDemoComponent,
   ],
   imports: [
     BrowserModule,

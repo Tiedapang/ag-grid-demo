@@ -24,4 +24,9 @@ export class GridDataServiceService {
         '../../../assets/olympicWinners.json'
     );
   }
+  getPersonInfo(): Observable<any>{
+    return this.http.get(
+        '../../../assets/person.json'
+    );
+  }
 }

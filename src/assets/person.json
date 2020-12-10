@@ -1,0 +1,21 @@
+[
+  {
+    "firstName": "Bob",
+    "lastName": "Harrison",
+    "gender": "Male",
+    "address":
+    "1197 Thunder Wagon Common, Cataract, RI, 02987-1016, US, (401) 747-0763",
+    "mood": "Happy",
+    "country": "Ireland"
+  },
+  {
+    "firstName": "Mary",
+    "lastName": "Wilson",
+    "gender": "Female",
+    "age": 11,
+    "address":
+    "3685 Rocky Glade, Showtucket, NU, X1E-9I0, CA, (867) 371-4215",
+    "mood": "Sad",
+    "country": "Ireland"
+  }
+  ]
