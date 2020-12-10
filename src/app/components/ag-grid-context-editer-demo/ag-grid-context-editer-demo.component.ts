@@ -17,7 +17,13 @@ export class AgGridContextEditerDemoComponent implements OnInit {
 
   constructor(private gridDataService: GridDataServiceService) {
     this.columnDefs = [
-      { field: 'firstName'},
+      {
+        field: 'firstName',
+        cellEditor: 'agSelectCellEditor',
+        cellEditorParams: {
+          values: ['li', 'zhang', 'liu']
+        }
+      },
       { field: 'lastName' },
       { field: 'gender'},
       {
