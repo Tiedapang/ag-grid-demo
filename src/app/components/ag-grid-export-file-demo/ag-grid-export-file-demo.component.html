@@ -1,0 +1,21 @@
+<div>
+    <div style="margin: 10px 0">
+        <button (click)="onBtnExportDataAsCsv()">
+            api.exportDataAsCsv(params)
+        </button>
+    </div>
+
+    <div class="grid-wrapper">
+        <ag-grid-angular
+            #agGrid
+            style="width: 800px; height: 500px;"
+            id="myGrid"
+            class="ag-theme-alpine"
+            [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef"
+            [autoGroupColumnDef]="autoGroupColumnDef"
+            [rowData]="rowData"
+            (gridReady)="onGridReady($event)"
+        ></ag-grid-angular>
+    </div>
+</div>
