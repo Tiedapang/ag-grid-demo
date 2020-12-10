@@ -17,14 +17,13 @@ export class AgGridContextEditerDemoComponent implements OnInit {
 
   constructor(private gridDataService: GridDataServiceService) {
     this.columnDefs = [
-      {
-        field: 'firstName',
-      },
+      { field: 'firstName'},
       { field: 'lastName' },
+      { field: 'gender'},
       {
-        field: 'gender',
+        field: 'age',
+        valueParser: this.numberParser,
       },
-      { field: 'age' },
       { field: 'mood' },
       { field: 'country' },
       {
@@ -51,5 +50,9 @@ export class AgGridContextEditerDemoComponent implements OnInit {
   onGridReady(params: any): void{
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+  }
+
+  numberParser(params): number{
+    return Number(params.newValue);
   }
 }
