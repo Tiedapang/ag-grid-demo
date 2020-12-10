@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ColumnApi, GridApi} from 'ag-grid-community';
-import {GridDataServiceService} from "../service/grid-data-service.service";
+import {GridDataServiceService} from '../service/grid-data-service.service';
 
 @Component({
   selector: 'app-ag-grid-export-file-demo',

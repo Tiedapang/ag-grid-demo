@@ -12,6 +12,8 @@ import { AgGridColumnFilterDemoComponent } from './components/ag-grid-column-fil
 import { AgGridContextRanderDemoComponent } from './components/ag-grid-context-rander-demo/ag-grid-context-rander-demo.component';
 import { AgGridContextEditerDemoComponent } from './components/ag-grid-context-editer-demo/ag-grid-context-editer-demo.component';
 import { AgGridExportFileDemoComponent } from './components/ag-grid-export-file-demo/ag-grid-export-file-demo.component';
+import { AgGridImportDemoComponent } from './components/ag-grid-import-demo/ag-grid-import-demo.component';
+import { AgGridCustomerComponmentsDemoComponent } from './components/ag-grid-customer-componments-demo/ag-grid-customer-componments-demo.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AgGridExportFileDemoComponent } from './components/ag-grid-export-file-
     AgGridContextRanderDemoComponent,
     AgGridContextEditerDemoComponent,
     AgGridExportFileDemoComponent,
+    AgGridImportDemoComponent,
+    AgGridCustomerComponmentsDemoComponent,
   ],
   imports: [
     BrowserModule,
