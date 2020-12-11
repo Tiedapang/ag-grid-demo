@@ -22,6 +22,11 @@ import {CurrencyRendererComponent} from './components/ag-grid-add-componments-de
 import {ChildMessageRendererComponment} from "./components/ag-grid-add-componments-demo/child-message-renderer.componment";
 import {RatioParentComponent} from "./components/ag-grid-customer-componments-demo/ratio-parent.component";
 import {ClickableParentComponent} from "./components/ag-grid-customer-componments-demo/clickable-parent.component";
+import { AgGridCellEditorDemoComponent } from './components/ag-grid-cell-editor-demo/ag-grid-cell-editor-demo.component';
+import {MoodRendererComponent} from "./components/ag-grid-cell-editor-demo/mood-renderer.component";
+import {MoodEditorComponent} from "./components/ag-grid-cell-editor-demo/mood-editor.component";
+import {NumericEditorComponent} from "./components/ag-grid-cell-editor-demo/numeric-editor.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -43,12 +48,17 @@ import {ClickableParentComponent} from "./components/ag-grid-customer-componment
     ChildMessageRendererComponment,
     RatioParentComponent,
     ClickableParentComponent,
+    AgGridCellEditorDemoComponent,
+    MoodRendererComponent,
+    MoodEditorComponent,
+    NumericEditorComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
