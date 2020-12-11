@@ -20,6 +20,8 @@ import {CubeRendererComponent} from './components/ag-grid-add-componments-demo/c
 import {ParamsRendererComponent} from './components/ag-grid-add-componments-demo/params-renderer.component';
 import {CurrencyRendererComponent} from './components/ag-grid-add-componments-demo/currency-renderer.component';
 import {ChildMessageRendererComponment} from "./components/ag-grid-add-componments-demo/child-message-renderer.componment";
+import {RatioParentComponent} from "./components/ag-grid-customer-componments-demo/ratio-parent.component";
+import {ClickableParentComponent} from "./components/ag-grid-customer-componments-demo/clickable-parent.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import {ChildMessageRendererComponment} from "./components/ag-grid-add-componmen
     ParamsRendererComponent,
     CurrencyRendererComponent,
     ChildMessageRendererComponment,
+    RatioParentComponent,
+    ClickableParentComponent,
   ],
   imports: [
     BrowserModule,
