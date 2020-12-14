@@ -1,0 +1,61 @@
+<div class="test-container">
+    <div class="test-header">
+        <label>
+            <input
+                    type="radio"
+                    name="filter"
+                    id="everyone"
+                    (change)="externalFilterChanged('everyone')"
+            />
+            Everyone
+        </label>
+        <label>
+            <input
+                    type="radio"
+                    name="filter"
+                    id="below25"
+                    (change)="externalFilterChanged('below25')"
+            />
+            Below 25
+        </label>
+        <label>
+            <input
+                    type="radio"
+                    name="filter"
+                    id="between25and50"
+                    (change)="externalFilterChanged('between25and50')"
+            />
+            Between 25 and 50
+        </label>
+        <label>
+            <input
+                    type="radio"
+                    name="filter"
+                    id="above50"
+                    (change)="externalFilterChanged('above50')"
+            />
+            Above 50
+        </label>
+        <label>
+            <input
+                    type="radio"
+                    name="filter"
+                    id="dateAfter2008"
+                    (change)="externalFilterChanged('dateAfter2008')"
+            />
+            After 01/01/2008
+        </label>
+    </div>
+    <ag-grid-angular
+        #agGrid
+        style="width: 800px; height: 500px;"
+        id="myGrid"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [isExternalFilterPresent]="isExternalFilterPresent"
+        [doesExternalFilterPass]="doesExternalFilterPass"
+        [rowData]="rowData"
+        (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>
+</div>

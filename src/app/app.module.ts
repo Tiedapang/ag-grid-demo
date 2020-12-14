@@ -19,14 +19,17 @@ import {SquareRendererComponent} from './components/ag-grid-add-componments-demo
 import {CubeRendererComponent} from './components/ag-grid-add-componments-demo/cube-renderer-component';
 import {ParamsRendererComponent} from './components/ag-grid-add-componments-demo/params-renderer.component';
 import {CurrencyRendererComponent} from './components/ag-grid-add-componments-demo/currency-renderer.component';
-import {ChildMessageRendererComponment} from "./components/ag-grid-add-componments-demo/child-message-renderer.componment";
-import {RatioParentComponent} from "./components/ag-grid-customer-componments-demo/ratio-parent.component";
-import {ClickableParentComponent} from "./components/ag-grid-customer-componments-demo/clickable-parent.component";
+import {ChildMessageRendererComponment} from './components/ag-grid-add-componments-demo/child-message-renderer.componment';
+import {RatioParentComponent} from './components/ag-grid-customer-componments-demo/ratio-parent.component';
+import {ClickableParentComponent} from './components/ag-grid-customer-componments-demo/clickable-parent.component';
 import { AgGridCellEditorDemoComponent } from './components/ag-grid-cell-editor-demo/ag-grid-cell-editor-demo.component';
-import {MoodRendererComponent} from "./components/ag-grid-cell-editor-demo/mood-renderer.component";
-import {MoodEditorComponent} from "./components/ag-grid-cell-editor-demo/mood-editor.component";
-import {NumericEditorComponent} from "./components/ag-grid-cell-editor-demo/numeric-editor.component";
-import {FormsModule} from "@angular/forms";
+import {MoodRendererComponent} from './components/ag-grid-cell-editor-demo/mood-renderer.component';
+import {MoodEditorComponent} from './components/ag-grid-cell-editor-demo/mood-editor.component';
+import {NumericEditorComponent} from './components/ag-grid-cell-editor-demo/numeric-editor.component';
+import {FormsModule} from '@angular/forms';
+import { AgGridFilterDemoComponent } from './components/ag-grid-filter-demo/ag-grid-filter-demo.component';
+import {PartialMatchFilterComponent} from './components/ag-grid-filter-demo/partial-match-filter.component';
+import { AgGridOutsideFilterDemoComponent } from './components/ag-grid-outside-filter-demo/ag-grid-outside-filter-demo.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import {FormsModule} from "@angular/forms";
     MoodRendererComponent,
     MoodEditorComponent,
     NumericEditorComponent,
+    AgGridFilterDemoComponent,
+    PartialMatchFilterComponent,
+    AgGridOutsideFilterDemoComponent,
   ],
   imports: [
     BrowserModule,

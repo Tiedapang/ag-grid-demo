@@ -1,0 +1,20 @@
+<div class="example-wrapper">
+    <button
+            style="margin-bottom: 5px"
+            (click)="onClicked()"
+            class="btn btn-primary"
+    >
+        Invoke Filter Instance Method
+    </button>
+    <ag-grid-angular
+        #agGrid
+        style="width: 800px; height: 500px;"
+        id="myGrid"
+        class="ag-theme-alpine"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData"
+        [frameworkComponents]="frameworkComponents"
+        (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>
+</div>
